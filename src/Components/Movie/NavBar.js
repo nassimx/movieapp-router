@@ -4,6 +4,8 @@ import { AppBar, Toolbar, IconButton, Typography, InputBase, makeStyles, fade, B
 import SearchIcon from '@material-ui/icons/Search';
 import ReactStars from "react-rating-stars-component";
 import HomeIcon from '@material-ui/icons/Home';
+import MovieIcon from '@material-ui/icons/Movie';
+import { Link } from 'react-router-dom';
 
 const NavBar = ({ handleAdd, movieList, ratingChanged, handleSearch }) => {
     const useStyles = makeStyles((theme) => ({
@@ -72,14 +74,16 @@ const NavBar = ({ handleAdd, movieList, ratingChanged, handleSearch }) => {
         <div className={classes.root}>
             <AppBar position="static" style={{ backgroundColor: "#232323" }}>
                 <Toolbar>
-                    <IconButton
-                        edge="start"
-                        className={classes.menuButton}
-                        color="inherit"
-                        aria-label="open drawer"
-                    >
-                        <HomeIcon fontSize="large" />
-                    </IconButton>
+                    <Link to="/">
+                        <IconButton edge="start" className={classes.menuButton} color="inherit" >
+                            <HomeIcon fontSize="large" />
+                        </IconButton>
+                    </Link>
+                    <Link to="/movies">
+                        <IconButton edge="start" className={classes.menuButton} color="inherit" >
+                            <MovieIcon fontSize="large" />
+                        </IconButton>
+                    </Link>
                     <Typography className={classes.title} variant="h6" noWrap>
                         MrMovieInfo
                     </Typography>

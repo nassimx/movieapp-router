@@ -2,6 +2,9 @@ import './App.css';
 import React, { useState } from 'react'
 import { MovieList } from './Components/Movie/MovieList';
 import NavBar from './Components/Movie/NavBar';
+import MovieDetails from './Components/Movie/MovieDetails';
+import Home from './Components/Home';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 
 
 function App() {
@@ -86,8 +89,17 @@ function App() {
 
   return (
     <div >
-      <NavBar handleAdd={handleAdd} ratingChanged={ratingChanged} handleSearch={handleSearch} movieList={movieList} />
-      <MovieList movieList={movieList.filter((movie) => movie.rate >= rate)} handleDelete={handleDelete} search={search} />
+      <Router>
+
+        <NavBar handleAdd={handleAdd} ratingChanged={ratingChanged} handleSearch={handleSearch} movieList={movieList} />
+        <Switch>
+          <Route path="/" exact component={Home} />
+          <Route path="/movies" exact render={() => <MovieList movieList={movieList.filter((movie) => movie.rate >= rate)} handleDelete={handleDelete} search={search} />} />
+          <Route path="/movies/:id" render={(props) => <MovieDetails {...props} />} />
+
+
+        </Switch>
+      </Router>
     </div>
   );
 }
