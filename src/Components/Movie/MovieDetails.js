@@ -1,10 +1,12 @@
 import React from 'react'
 
-const MovieDetails = ({ props }) => {
-    console.log(props);
+const MovieDetails = ({ match, movieList }) => {
+    console.log(match);
+    console.log(movieList);
+    const movieList=movieList.find(movieList => movieList.id.tostring() === match.params.id)
     return (
         <div>
-            <h1>aaa</h1>
+
         </div>
     )
 }
