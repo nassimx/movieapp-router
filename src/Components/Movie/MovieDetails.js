@@ -1,6 +1,7 @@
 import React from 'react'
-import { Box, Grid, Card, CardContent, Typography } from '@material-ui/core';
+import { Box, Grid, Card, CardContent, Typography, CardActions, Button } from '@material-ui/core';
 import { makeStyles, } from '@material-ui/core/styles';
+import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles({
     title: {
@@ -42,6 +43,12 @@ const MovieDetails = ({ match, movieList }) => {
                                 {movie.desc}
                             </Typography>
                         </CardContent>
+                        <CardActions p={10}>
+                            <Link to="/movies">
+                                <Button size="small" variant="contained" color="primary">Go Back</Button>
+
+                            </Link>
+                        </CardActions>
                     </Card>
                 </Grid>
             </Box>
