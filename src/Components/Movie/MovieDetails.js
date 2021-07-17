@@ -43,7 +43,7 @@ const MovieDetails = ({ match, movieList }) => {
                                 {movie.desc}
                             </Typography>
                         </CardContent>
-                        <CardActions p={10}>
+                        <CardActions >
                             <Link to="/movies">
                                 <Button size="small" variant="contained" color="primary">Go Back</Button>
 
