@@ -113,7 +113,7 @@ function App() {
         <Switch>
           <Route path="/" exact component={Home} />
           <Route path="/movies" exact render={() => <MovieList movieList={movieList.filter((movie) => movie.rate >= rate)} handleDelete={handleDelete} search={search} />} />
-          <Route path="/movies/:id" render={(props) => <MovieDetails {...props} movieList={movieList} />} />
+          <Route path="/movies/:id" render={(props) => <MovieDetails {...props} movieList={movieList}  />} />
 
 
         </Switch>
